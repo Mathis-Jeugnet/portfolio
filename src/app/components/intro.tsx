@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 
 export default function Intro({ onComplete }: { onComplete: () => void }) {
   const [displayedText, setDisplayedText] = useState("")
-  const fullText = "Mathis.dev 🚀"
+  const fullText = "Mathis.jeugnet 🚀"
 
   useEffect(() => {
     let i = 0
