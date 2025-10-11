@@ -4,10 +4,10 @@
 import { useState, useRef } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Points, PointMaterial } from "@react-three/drei"
-// @ts-ignore
+// @ts-expect-error - La librairie maath n'a pas de types à jour
 import * as random from "maath/random/dist/maath-random.esm"
 import { useScroll } from "framer-motion"
-import * as THREE from "three"
+import type * as THREE from "three"
 
 export default function AnimatedBackground() {
   return (
@@ -17,8 +17,8 @@ export default function AnimatedBackground() {
   )
 }
 
-function Starfield(props: any) {
-  const pointsRef = useRef<any>(null)
+function Starfield() {
+  const pointsRef = useRef<THREE.Points>(null)
   const [sphere] = useState(() =>
     random.inSphere(new Float32Array(5000), { radius: 1.5 })
   )
@@ -35,7 +35,6 @@ function Starfield(props: any) {
     pointsRef.current.rotation.y -= delta / 20
 
     // 2. Mouvement orbital de la caméra basé sur le scroll
-    // La caméra se déplace en arc de cercle autour du centre
     const angle = progress * Math.PI * 0.5 // On fait un quart de tour
     state.camera.position.x = Math.sin(angle) * 1.5
     state.camera.position.z = Math.cos(angle) * 1.5
@@ -46,7 +45,7 @@ function Starfield(props: any) {
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={pointsRef} positions={sphere} stride={3} frustumCulled={false} {...props}>
+      <Points ref={pointsRef} positions={sphere} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
           color="#ffffff"

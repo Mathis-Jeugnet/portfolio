@@ -22,7 +22,7 @@ export default function Contact() {
         transition={{ delay: 0.2, duration: 0.6 }}
         className="text-muted-foreground mb-8 max-w-xl mx-auto"
       >
-        Je suis actuellement à la recherche de nouvelles opportunités. N'hésitez pas à me contacter, je serais ravi d'échanger avec vous !
+        Je suis actuellement à la recherche de nouvelles opportunités. N&apos;hésitez pas à me contacter, je serais ravi d&apos;échanger avec vous !
       </motion.p>
       <motion.div
         whileInView={{ opacity: 1, y: 0 }}

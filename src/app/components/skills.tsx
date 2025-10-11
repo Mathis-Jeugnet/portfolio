@@ -8,7 +8,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Code, Database, Smartphone, Cloud, PenTool, GitBranch } from "lucide-react"
+import { Code, Database, Cloud, PenTool, GitBranch } from "lucide-react"
 
 const skills = {
   "Langages & Frontend": [
