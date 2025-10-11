@@ -1,10 +1,11 @@
+// src/app/components/about.tsx
 "use client"
 
 import { motion } from "framer-motion"
 
 export default function About() {
   return (
-    <section id="about" className="py-32 max-w-3xl text-center px-4">
+    <section id="about" className="relative z-10 py-32 max-w-3xl text-center px-4 mx-auto">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: 30 }}
