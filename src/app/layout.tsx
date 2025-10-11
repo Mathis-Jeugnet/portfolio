@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/app/components/lenis-provider"; // Assurez-vous que le chemin est correct
+import AnimatedBackground from "@/app/components/animated-background"; // Assurez-vous que le chemin est correct
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,10 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased animated-gradient`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background`}
       >
+        <div className="fixed top-0 left-0 w-full h-full -z-10">
+          <AnimatedBackground />
+        </div>
         <LenisProvider>{children}</LenisProvider>
       </body>
     </html>

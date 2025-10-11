@@ -117,30 +117,9 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
-  }
-}
-
-.animated-gradient {
-  background-size: 200% 200%;
-  background-image: linear-gradient(
-    -45deg,
-    #000000,
-    #1e1e1e,
-    #3c3c3c,
-    #5a5a5a
-  );
-  animation: AnimateBG 15s ease infinite;
-}
-
-@keyframes AnimateBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+    /* La couleur de fond est maintenant gérée par le thème, 
+       mais assurez-vous qu'elle est bien sombre ou transparente. 
+       Ici on la force à être transparente pour voir le canvas 3D */
+    @apply bg-transparent text-foreground;
   }
 }
