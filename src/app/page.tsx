@@ -3,15 +3,22 @@
 
 import Hero from "@/app/components/hero"
 import About from "@/app/components/about"
-import Projects from "@/app/components/projects" // Importer le composant
+import Projects from "@/app/components/projects"
+import Skills from "@/app/components/skills"
+import Contact from "@/app/components/contact"
+import Footer from "@/app/components/footer"
 
 export default function Home() {
   return (
-    <main className="flex flex-col">
-      <Hero />
-      <About />
-      <Projects />
-      {/* Vous pouvez ajouter ici vos autres sections (Compétences, Contact) */}
-    </main>
+    <>
+      <main className="flex flex-col">
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   )
 }

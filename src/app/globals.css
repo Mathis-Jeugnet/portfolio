@@ -113,13 +113,15 @@
 }
 
 @layer base {
+  html {
+    /* Ajoute un décalage au scroll pour les ancres, 
+       de la hauteur approximative de votre header */
+    scroll-padding-top: 80px; 
+  }
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    /* La couleur de fond est maintenant gérée par le thème, 
-       mais assurez-vous qu'elle est bien sombre ou transparente. 
-       Ici on la force à être transparente pour voir le canvas 3D */
-    @apply bg-transparent text-foreground;
+    @apply bg-background text-foreground;
   }
 }
