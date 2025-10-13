@@ -10,28 +10,31 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import Link from "next/link" // Important d'importer Link
 
 const projects = [
+  // --- Le nouveau projet est maintenant en première position ---
   {
-    title: "Mon Portfolio",
+    title: "Dashboard d'Analyse de Ventes SpaceX",
     description:
-      "Le site sur lequel vous naviguez actuellement. Un portfolio 'one-page' avec des animations fluides, construit avec Next.js, Tailwind CSS et Three.js.",
-    tags: ["Next.js", "Tailwind", "Three.js", "Framer Motion"],
-    link: "#",
+      "Un dashboard interactif visualisant les données des lancements de SpaceX, démontrant des compétences en traitement et affichage de données.",
+    tags: ["Python", "Pandas", "ETL", "React", "Recharts", "Data Viz"],
+    link: "/dashboard-spacex", // <- Voici le lien vers votre nouvelle page statique
   },
+  // --- Les autres projets suivent ---
   {
     title: "E-commerce de Sneakers",
     description:
       "Une plateforme de vente en ligne complète avec gestion des stocks, panier, et paiement sécurisé via Stripe.",
     tags: ["React", "Node.js", "Express", "MongoDB", "Stripe"],
-    link: "#",
+    link: "#", // Vous pourrez créer des pages pour eux plus tard
   },
   {
     title: "Application Météo",
     description:
       "Une application simple et intuitive pour consulter la météo en temps réel, utilisant l'API OpenWeatherMap.",
     tags: ["Vue.js", "API Rest", "CSS Grid"],
-    link: "#",
+    link: "#", // Vous pourrez créer des pages pour eux plus tard
   },
 ]
 
@@ -78,10 +81,11 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
+                {/* Le bouton utilise maintenant le Link de Next.js pour une navigation fluide */}
                 <Button variant="outline" asChild>
-                  <a href={project.link} target="_blank" rel="noopener noreferrer">
-                    Voir le projet
-                  </a>
+                  <Link href={project.link}>
+                    Voir le projet en détail
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
