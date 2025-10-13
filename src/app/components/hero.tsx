@@ -2,7 +2,6 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect"; // Importer le nouveau composant
 
@@ -35,7 +34,7 @@ export default function Hero() {
 
         <p className="text-gray-400 text-lg max-w-xl mb-8">
           Je conçois des applications web performantes pour explorer et visualiser les données, 
-          avec l'ambition de construire les pipelines qui les rendent possibles.
+          avec l&apos;ambition de construire les pipelines qui les rendent possibles.
         </p>
 
       </motion.div>
