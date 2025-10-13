@@ -1,22 +1,25 @@
 // src/app/components/hero.tsx
-"use client"
+"use client";
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { useRef } from "react"
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { useRef } from "react";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect"; // Importer le nouveau composant
+
+const words = "Mathis Jeugnet: De la Donnée à l'Interface.";
 
 export default function Hero() {
-  const targetRef = useRef<HTMLDivElement>(null)
+  const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start start", "end start"],
-  })
+  });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8])
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
   const position = useTransform(scrollYProgress, (pos) =>
     pos >= 1 ? "relative" : "fixed"
-  )
+  );
 
   return (
     <motion.section
@@ -27,18 +30,15 @@ export default function Hero() {
         style={{ opacity, scale, position }}
         className="inset-0 flex flex-col items-center justify-center text-center"
       >
-        <h1 className="text-5xl font-bold mb-4">
-          Salut, je suis <span className="text-blue-500">Mathis</span> 👋
-        </h1>
+        {/* On remplace le h1 par le nouveau composant */}
+        <TextGenerateEffect words={words} className="text-5xl font-bold mb-4" />
 
         <p className="text-gray-400 text-lg max-w-xl mb-8">
-          Développeur front-end passionné par la création d’interfaces modernes, fluides et accessibles.
+          Je conçois des applications web performantes pour explorer et visualiser les données, 
+          avec l'ambition de construire les pipelines qui les rendent possibles.
         </p>
 
-        <Button size="lg" asChild>
-          <a href="#projects">Voir mes projets 🚀</a>
-        </Button>
       </motion.div>
     </motion.section>
-  )
+  );
 }

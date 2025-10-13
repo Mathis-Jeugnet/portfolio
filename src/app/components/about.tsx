@@ -12,18 +12,15 @@ export default function About() {
         transition={{ duration: 0.6 }}
         className="text-3xl font-semibold mb-6"
       >
-        À propos de moi
+        Passionné par la Donnée et le Code
       </motion.h2>
-
       <motion.p
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: 30 }}
         transition={{ delay: 0.3, duration: 0.6 }}
         className="text-gray-400 leading-relaxed"
       >
-        Je suis un développeur passionné par les technologies web modernes. J’aime transformer des idées en
-        expériences interactives et intuitives. Mon objectif est de créer des interfaces élégantes et performantes,
-        tout en gardant le code propre et maintenable.
+        Après avoir développé une solide expertise en développement web, je me suis découvert une passion pour les défis en amont : la collecte, la transformation et la mise à disposition de données fiables. Mon objectif est de devenir Data Engineer pour construire les infrastructures qui alimentent les applications de demain.
       </motion.p>
     </section>
   )
