@@ -20,7 +20,7 @@ export default function About() {
         transition={{ delay: 0.3, duration: 0.6 }}
         className="text-gray-400 leading-relaxed"
       >
-        Après avoir développé une solide expertise en développement web, je me suis découvert une passion pour les défis en amont : la collecte, la transformation et la mise à disposition de données fiables. Mon objectif est de devenir Data Engineer pour construire les infrastructures qui alimentent les applications de demain.
+        Après avoir développé des compétences  développement web, data, gestion de projet au cours de mes études, je me suis découvert une passion pour la data : la collecte, la transformation et la mise à disposition de données fiables et compréhensible par tous. Mon objectif est de devenir Data Engineer pour utiliser les données qui alimentent les applications de demain.
       </motion.p>
     </section>
   )

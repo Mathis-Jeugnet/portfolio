@@ -33,8 +33,7 @@ export default function Hero() {
         <TextGenerateEffect words={words} className="text-5xl font-bold mb-4" />
 
         <p className="text-gray-400 text-lg max-w-xl mb-8">
-          Je conçois des applications web performantes pour explorer et visualiser les données, 
-          avec l&apos;ambition de construire les pipelines qui les rendent possibles.
+          Je me passionne par l&apos;exploration des données et l&apos;utilisation des outils pour les transformer et les rendre compréhensible.
         </p>
 
       </motion.div>
