@@ -10,31 +10,30 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import Link from "next/link" // Important d'importer Link
-
+import Link from "next/link" 
 const projects = [
-  // --- Le nouveau projet est maintenant en première position ---
   {
     title: "Dashboard d'Analyse de Ventes SpaceX",
     description:
       "Un dashboard interactif visualisant les données des lancements de SpaceX, démontrant des compétences en traitement et affichage de données.",
     tags: ["Python", "Pandas", "ETL", "React", "Recharts", "Data Viz"],
-    link: "/dashboard-spacex", // <- Voici le lien vers votre nouvelle page statique
-  },
-  // --- Les autres projets suivent ---
-  {
-    title: "E-commerce de Sneakers",
-    description:
-      "Une plateforme de vente en ligne complète avec gestion des stocks, panier, et paiement sécurisé via Stripe.",
-    tags: ["React", "Node.js", "Express", "MongoDB", "Stripe"],
-    link: "#", // Vous pourrez créer des pages pour eux plus tard
+    link: "/dashboard-spacex", 
   },
   {
-    title: "Application Météo",
+    title: "Nouveau Projet à Venir",
     description:
-      "Une application simple et intuitive pour consulter la météo en temps réel, utilisant l'API OpenWeatherMap.",
-    tags: ["Vue.js", "API Rest", "CSS Grid"],
-    link: "#", // Vous pourrez créer des pages pour eux plus tard
+      "Je suis actuellement entrain de travailler sur un nouveau projet. Revenez bientôt pour en savoir plus !",
+    tags: ["Bientôt..."],
+    link: "#",
+    status: "wip", 
+  },
+  {
+    title: "Nouveau Projet à Venir",
+    description:
+      "Je suis actuellement entrain de travailler sur un nouveau projet. Revenez bientôt pour en savoir plus !",
+    tags: ["Bientôt..."],
+    link: "#",
+    status: "wip",
   },
 ]
 
@@ -81,7 +80,6 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                {/* Le bouton utilise maintenant le Link de Next.js pour une navigation fluide */}
                 <Button variant="outline" asChild>
                   <Link href={project.link}>
                     Voir le projet en détail

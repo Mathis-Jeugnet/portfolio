@@ -5,12 +5,21 @@ import { motion } from "framer-motion"
 import Lenis from "lenis"
 import { useEffect, useRef } from "react"
 import React from "react"
+// On importe les icônes dont on a besoin
+import { User, FolderKanban, Sparkles, Mail } from "lucide-react"
+
+// On crée un tableau pour nos liens de navigation, c'est plus propre !
+const navItems = [
+  { href: "#about", text: "À propos", icon: <User className="size-5" /> },
+  { href: "#projects", text: "Projets", icon: <FolderKanban className="size-5" /> },
+  { href: "#skills", text: "Compétences", icon: <Sparkles className="size-5" /> },
+  { href: "#contact", text: "Contact", icon: <Mail className="size-5" /> },
+]
 
 export default function Header() {
   const lenisRef = useRef<Lenis | null>(null)
 
   useEffect(() => {
-    // On garde l'instance de Lenis pour utiliser sa méthode scrollTo
     const lenis = new Lenis()
     lenisRef.current = lenis
 
@@ -21,8 +30,9 @@ export default function Header() {
     requestAnimationFrame(raf)
   }, [])
 
+
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
-    e.preventDefault() // On empêche le saut brusque par défaut
+    e.preventDefault()
     if (lenisRef.current) {
       lenisRef.current.scrollTo(target, {
         duration: 1.5,
@@ -40,43 +50,22 @@ export default function Header() {
     >
       <nav className="max-w-5xl mx-auto px-4 py-3">
         <div className="bg-card/50 backdrop-blur-lg rounded-full border border-border/50 shadow-sm">
-          <ul className="flex items-center justify-center gap-4 px-4 py-2 text-sm">
-            <li>
-              <a 
-                href="#about" 
-                onClick={(e) => handleScrollTo(e, "#about")} 
-                className="text-muted-foreground hover:text-foreground transition-colors px-3 py-2"
-              >
-                À propos
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#projects" 
-                onClick={(e) => handleScrollTo(e, "#projects")}
-                className="text-muted-foreground hover:text-foreground transition-colors px-3 py-2"
-              >
-                Projets
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#skills" 
-                onClick={(e) => handleScrollTo(e, "#skills")}
-                className="text-muted-foreground hover:text-foreground transition-colors px-3 py-2"
-              >
-                Compétences
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#contact" 
-                onClick={(e) => handleScrollTo(e, "#contact")}
-                className="text-muted-foreground hover:text-foreground transition-colors px-3 py-2"
-              >
-                Contact
-              </a>
-            </li>
+          <ul className="flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 text-sm">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <a 
+                  href={item.href} 
+                  onClick={(e) => handleScrollTo(e, item.href)} 
+                  className="text-muted-foreground hover:text-foreground transition-colors px-3 py-2 flex items-center justify-center rounded-full"
+                  aria-label={item.text}
+                >
+                  {/* L'icône s'affiche sur mobile, et est cachée sur les écrans plus grands (sm:) */}
+                  <div className="sm:hidden">{item.icon}</div>
+                  {/* Le texte est caché sur mobile, et s'affiche sur les écrans plus grands (sm:) */}
+                  <span className="hidden sm:inline">{item.text}</span>
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </nav>

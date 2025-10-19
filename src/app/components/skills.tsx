@@ -8,29 +8,29 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Code, Database, Cloud, PenTool, GitBranch } from "lucide-react"
-
+import { Code, Database, Braces, LayoutTemplate, Paintbrush, Users, Languages, Star, CheckCircle, Lightbulb, Github } from "lucide-react"
+// Données extraites et structurées à partir de votre CV
 const skills = {
-  "Langages & Frontend": [
-    { name: "HTML5", icon: <Code /> },
-    { name: "CSS3", icon: <Code /> },
-    { name: "JavaScript", icon: <Code /> },
-    { name: "TypeScript", icon: <Code /> },
-    { name: "React", icon: <Code /> },
-    { name: "Next.js", icon: <Code /> },
-    { name: "Tailwind CSS", icon: <PenTool /> },
+  "Langages & Data": [
+    { name: "Python", icon: <Code color="#306998" /> },
+    { name: "JavaScript", icon: <Code color="#F0DB4F" /> },
+    { name: "Next.js", icon: <Braces /> },
+    { name: "React Native", icon: <Braces color="#61DAFB" /> },
+    { name: "SQL", icon: <Database /> },
   ],
-  "Backend & Base de données": [
-    { name: "Node.js", icon: <Code /> },
-    { name: "Express", icon: <Code /> },
-    { name: "MongoDB", icon: <Database /> },
-    { name: "Firebase", icon: <Cloud /> },
+  "Outils & Logiciels": [
+    { name: "Tableau / PowerBI", icon: <LayoutTemplate /> },
+    { name: "Figma", icon: <Paintbrush /> },
+    { name: "Suite Office", icon: <CheckCircle /> },
+    { name: "Suite Adobe", icon: <Paintbrush /> },
+    { name: "Git & GitHub", icon: <Github /> },
   ],
-  "Outils & Divers": [
-    { name: "Git & GitHub", icon: <GitBranch /> },
-    { name: "Figma", icon: <PenTool /> },
-    { name: "Three.js", icon: <Code /> },
-    { name: "Framer Motion", icon: <Code /> },
+  "Compétences Transverses": [
+    { name: "Adaptabilité", icon: <Star /> },
+    { name: "Rigueur", icon: <CheckCircle /> },
+    { name: "Travail d'équipe", icon: <Users /> },
+    { name: "Curiosité", icon: <Lightbulb /> },
+    { name: "Autonomie", icon: <Star /> },
   ],
 }
 
@@ -39,7 +39,7 @@ export default function Skills() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1 },
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
     },
   }
   const itemVariants = {
@@ -63,7 +63,7 @@ export default function Skills() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="space-y-10"
+          className="space-y-12"
         >
           {Object.entries(skills).map(([category, items]) => (
             <motion.div key={category} variants={itemVariants}>
@@ -72,9 +72,9 @@ export default function Skills() {
                 {items.map((skill) => (
                   <Tooltip key={skill.name}>
                     <TooltipTrigger asChild>
-                      <div className="bg-card/50 border border-border/50 p-4 rounded-lg flex items-center justify-center w-24 h-24 flex-col gap-2 cursor-pointer transition-transform hover:scale-110 hover:border-primary/50">
+                      <div className="bg-card/50 border border-border/50 p-4 rounded-lg flex items-center justify-center w-28 h-28 flex-col gap-2 cursor-pointer transition-transform hover:scale-110 hover:border-primary/50">
                         {skill.icon}
-                        <span className="text-xs text-center">{skill.name}</span>
+                        <span className="text-xs text-center font-semibold">{skill.name}</span>
                       </div>
                     </TooltipTrigger>
                     <TooltipContent>
